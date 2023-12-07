@@ -36,6 +36,19 @@ worksheet2.write('I1',"Toz Gram")
 worksheet2.write('J1',"Developer")
 worksheet2.write('K1',"Developer Gram")
 
+worksheet2.set_column('A:A', 10)
+worksheet2.set_column('B:B', 10)
+worksheet2.set_column('C:C', 10)
+worksheet2.set_column('D:D', 10)
+worksheet2.set_column('E:E', 10)
+worksheet2.set_column('F:F', 10)
+worksheet2.set_column('G:G', 10)
+worksheet2.set_column('H:H', 10)
+worksheet2.set_column('I:I', 10)
+worksheet2.set_column('J:J', 10)
+worksheet2.set_column('K:K', 10)
+worksheet2.set_default_row(20)
+
 
 counter=4
 for i in range(len(df2)):
