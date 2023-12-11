@@ -197,7 +197,11 @@ for i in range(len(df2)):
                         worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
                     counter=counter+1
                     worksheet2.write('H'+str(i+2),str(df.iloc[j][27]))
-                    worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
+                    if str(df.iloc[j][16])== "KG":
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])/1000).replace(".",","))
+                    else:
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
+
 
                 if str(df2.iloc[i][12]).upper()!="NAN" and str(df2.iloc[i][14])!="nan":
                    
@@ -211,7 +215,10 @@ for i in range(len(df2)):
                         worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
                     counter=counter+1
                     worksheet2.write('H'+str(i+2),str(df.iloc[index][27]))
-                    worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
+                    if str(df.iloc[j][16])== "KG":
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])/1000).replace(".",","))
+                    else:
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
                   
 
 
