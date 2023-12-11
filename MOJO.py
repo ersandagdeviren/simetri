@@ -7,7 +7,7 @@ nowtime = datetime.now()
 df=pd.read_excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\source.xlsx')
 df2=pd.read_excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\input.xlsx')
 
-formatted_date = "{}.{}.{}-{}:{}".format(today.day, today.month, today.year, nowtime.strftime("%H"), nowtime.strftime("%H"))
+formatted_date = "{}.{}.{}-{}{}{}".format(today.day, today.month, today.year, nowtime.hour, nowtime.minute, nowtime.second)
 workbook = xlsxwriter.Workbook(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Excel\excel.xlsx')
 worksheet = workbook.add_worksheet()
 worksheet.write('A1',"DAT" )
