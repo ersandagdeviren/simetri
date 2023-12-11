@@ -23,29 +23,25 @@ worksheet.write('D2',"MİKTAR")
 workbook2=xlsxwriter.Workbook(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Formlar\Uretim_Formu_{}.xlsx'.format(formatted_date))
 
 worksheet2 = workbook2.add_worksheet()
-border_format=workbook2.add_format({
-    'border': 1,
 
-})
-
-worksheet2.write('A1',"Ürün",border_format)
-worksheet2.write('B1',"Miktar",border_format)
-worksheet2.write('C1',"Çip",border_format)
-worksheet2.write('D1',"Kartuş",border_format)
-worksheet2.write('E1',"Kafa",border_format)
-worksheet2.write('F1',"Kutu",border_format)
-worksheet2.write('G1',"Atık",border_format)
-worksheet2.write('H1',"Toz",border_format)
-worksheet2.write('I1',"Toz Gram",border_format)
-worksheet2.write('J1',"Developer",border_format)
-worksheet2.write('K1',"Developer Gram",border_format)
-worksheet2.write('L1',"Çip",border_format)
-worksheet2.write('M1',"Kartuş",border_format)
-worksheet2.write('N1',"Kafa",border_format)
-worksheet2.write('O1',"Kutu",border_format)
-worksheet2.write('P1',"Atık",border_format)
-worksheet2.write('Q1',"Toz",border_format)
-worksheet2.write('R1',"Developer",border_format)
+worksheet2.write('A1',"Ürün" )
+worksheet2.write('B1',"Miktar")
+worksheet2.write('C1',"Çip")
+worksheet2.write('D1',"Kartuş")
+worksheet2.write('E1',"Kafa")
+worksheet2.write('F1',"Kutu")
+worksheet2.write('G1',"Atık")
+worksheet2.write('H1',"Toz")
+worksheet2.write('I1',"Toz Gram")
+worksheet2.write('J1',"Developer")
+worksheet2.write('K1',"Developer Gram")
+worksheet2.write('L1',"Çip")
+worksheet2.write('M1',"Kartuş")
+worksheet2.write('N1',"Kafa")
+worksheet2.write('O1',"Kutu")
+worksheet2.write('P1',"Atık")
+worksheet2.write('Q1',"Toz")
+worksheet2.write('R1',"Developer")
 
 
 worksheet2.set_column('A:A', 10)
@@ -66,8 +62,8 @@ counter=4
 for i in range(len(df2)):
     for j in range(len(df)):
         if str(df2.iloc[i][0]).upper()== str(df.iloc[j][0]):
-            worksheet2.write('A'+str(i+2),str(df2.iloc[i][0]).upper(),border_format)
-            worksheet2.write('B'+str(i+2),str(df2.iloc[i][1]),border_format)
+            worksheet2.write('A'+str(i+2),str(df2.iloc[i][0]).upper())
+            worksheet2.write('B'+str(i+2),str(df2.iloc[i][1]))
             if str(df.iloc[j][5]) != "nan":
                 if str(df2.iloc[i][2]).upper()=="Y": #chip
                     pass
@@ -76,7 +72,7 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[i][6]))
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('C'+str(i+2),str(df.iloc[j][22]),border_format)
+                    worksheet2.write('C'+str(i+2),str(df.iloc[j][22]))
                 else:
                     try:
                         index =df[df['Chip_short'] == str(df2.iloc[i][2]).upper()].index[0]
@@ -84,7 +80,7 @@ for i in range(len(df2)):
                         worksheet.write('C'+str(counter),str(df.iloc[index][6]))
                         worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                         counter=counter+1
-                        worksheet2.write('C'+str(i+2),str(df.iloc[index][22]),border_format)
+                        worksheet2.write('C'+str(i+2),str(df.iloc[index][22]))
                     except:
                         pass
 
@@ -98,7 +94,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
                     
-                    worksheet2.write('D'+str(i+2),str(df.iloc[j][23]),border_format)
+                    worksheet2.write('D'+str(i+2),str(df.iloc[j][23]))
                     
                 if str(df2.iloc[i][4])=="nan":
                     
@@ -107,7 +103,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
                     
-                    worksheet2.write('D'+str(i+2),str(df.iloc[j][23]),border_format)
+                    worksheet2.write('D'+str(i+2),str(df.iloc[j][23]))
                 if str(df2.iloc[i][4])!="nan" and str(df2.iloc[i][4]).upper()!="Y" and str(df2.iloc[i][4]).upper()!="C" and str(df2.iloc[i][4]).upper()!="Ç":
                     
                     index=df[df['Empty_short'] == str(df2.iloc[i][4]).upper()].index[0]
@@ -116,7 +112,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
 
-                    worksheet2.write('D'+str(i+2),str(df.iloc[index][23]),border_format)
+                    worksheet2.write('D'+str(i+2),str(df.iloc[index][23]))
                    
                     
             if str(df.iloc[j][9]) != "nan":
@@ -128,7 +124,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
                     
-                    worksheet2.write('E'+str(i+2),str(df.iloc[j][24]),border_format)
+                    worksheet2.write('E'+str(i+2),str(df.iloc[j][24]))
                 if str(df2.iloc[i][6])!="nan" and str(df2.iloc[i][6]).upper()!="Y":
                     
                     index=df[df['Head_short'] == str(df2.iloc[i][6]).upper()].index[0]
@@ -137,7 +133,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
 
-                    worksheet2.write('E'+str(i+2),str(df.iloc[index][24]),border_format)
+                    worksheet2.write('E'+str(i+2),str(df.iloc[index][24]))
                     
             if str(df.iloc[j][11]) != "nan": 
                 if  str(df2.iloc[i][8]).upper()=="Y":#box
@@ -148,7 +144,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
                     
-                    worksheet2.write('F'+str(i+2),str(df.iloc[j][25]),border_format)
+                    worksheet2.write('F'+str(i+2),str(df.iloc[j][25]))
                 if  str(df2.iloc[i][8])!="nan" and str(df2.iloc[i][8]).upper()!="Y":
                     
                     index=df[df['Box_short'] == str(df2.iloc[i][8]).upper()].index[0]
@@ -156,7 +152,7 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[index][12]))
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('F'+str(i+2),str(df.iloc[index][25]),border_format)
+                    worksheet2.write('F'+str(i+2),str(df.iloc[index][25]))
                    
                     
             if str(df.iloc[j][13]) != "nan": 
@@ -168,7 +164,7 @@ for i in range(len(df2)):
                     worksheet.write('D'+str(counter),str(df2.iloc[i][1]).replace(".",","))
                     counter=counter+1
                     
-                    worksheet2.write('G'+str(i+2),str(df.iloc[j][26]),border_format)
+                    worksheet2.write('G'+str(i+2),str(df.iloc[j][26]))
                 if str(df2.iloc[i][10])!="nan" and str(df2.iloc[i][10]).upper()!="Y":
                     if isinstance(df2.iloc[i][10], float):
                         index=df[df['Waste_short'] == str(str(int(df2.iloc[i][10])).upper())].index[0]
@@ -180,7 +176,7 @@ for i in range(len(df2)):
                     counter=counter+1
                 
 
-                    worksheet2.write('G'+str(i+2),str(df.iloc[index][26]),border_format)
+                    worksheet2.write('G'+str(i+2),str(df.iloc[index][26]))
 
                         
             if str(df.iloc[j][15]) != "nan":
@@ -195,8 +191,8 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[index][16]))
                     worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df.iloc[j][17])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('H'+str(i+2),str(df.iloc[index][27]),border_format)
-                    worksheet2.write('I'+str(i+2),str(float(df.iloc[j][17])).replace(".",","),border_format)
+                    worksheet2.write('H'+str(i+2),str(df.iloc[index][27]))
+                    worksheet2.write('I'+str(i+2),str(float(df.iloc[j][17])).replace(".",","))
 
                     
 
@@ -208,11 +204,11 @@ for i in range(len(df2)):
                     else:
                         worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('H'+str(i+2),str(df.iloc[j][27]),border_format)
+                    worksheet2.write('H'+str(i+2),str(df.iloc[j][27]))
                     if str(df.iloc[j][16])== "KG":
-                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])/1000).replace(".",","),border_format)
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])/1000).replace(".",","))
                     else:
-                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","),border_format)
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
 
 
                 if str(df2.iloc[i][12]).upper()!="NAN" and str(df2.iloc[i][14])!="nan":
@@ -226,11 +222,11 @@ for i in range(len(df2)):
                     else:
                         worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('H'+str(i+2),str(df.iloc[index][27]),border_format)
+                    worksheet2.write('H'+str(i+2),str(df.iloc[index][27]))
                     if str(df.iloc[j][16])== "KG":
-                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])/1000).replace(".",","),border_format)
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])/1000).replace(".",","))
                     else:
-                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","),border_format)
+                        worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
                   
 
 
@@ -239,8 +235,8 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[j][16]))
                     worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df.iloc[j][17])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('H'+str(i+2),str(df.iloc[j][27]),border_format)
-                    worksheet2.write('I'+str(i+2),str(float(df.iloc[j][17])).replace(".",","),border_format)
+                    worksheet2.write('H'+str(i+2),str(df.iloc[j][27]))
+                    worksheet2.write('I'+str(i+2),str(float(df.iloc[j][17])).replace(".",","))
             if str(df.iloc[j][18]) != "nan":
                 
                 if str(df2.iloc[i][16]).upper()=="Y":#developer
@@ -252,8 +248,8 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[index][19]))
                     worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df.iloc[j][20])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('J'+str(i+2),str(df.iloc[index][28]),border_format)
-                    worksheet2.write('K'+str(i+2),str(float(df.iloc[j][20])).replace(".",","),border_format)
+                    worksheet2.write('J'+str(i+2),str(df.iloc[index][28]))
+                    worksheet2.write('K'+str(i+2),str(float(df.iloc[j][20])).replace(".",","))
 
                   
 
@@ -262,8 +258,8 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[j][19]))
                     worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][18])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('J'+str(i+2),str(df.iloc[j][28]),border_format)
-                    worksheet2.write('K'+str(i+2),str(float(df2.iloc[i][18])).replace(".",",",border_format)
+                    worksheet2.write('J'+str(i+2),str(df.iloc[j][28]))
+                    worksheet2.write('K'+str(i+2),str(float(df2.iloc[i][18])).replace(".",","))
 
                 if str(df2.iloc[i][16]).upper()!="NAN" and str(df2.iloc[i][18])!="nan":
               
@@ -273,8 +269,8 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[index][19]))
                     worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][18])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('J'+str(i+2),str(df.iloc[index][28]),border_format)
-                    worksheet2.write('K'+str(i+2),str(float(df2.iloc[i][18])).replace(".",","),border_format)
+                    worksheet2.write('J'+str(i+2),str(df.iloc[index][28]))
+                    worksheet2.write('K'+str(i+2),str(float(df2.iloc[i][18])).replace(".",","))
                         
 
                   
@@ -285,8 +281,8 @@ for i in range(len(df2)):
                     worksheet.write('C'+str(counter),str(df.iloc[j][19]))
                     worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df.iloc[j][20])).replace(".",","))
                     counter=counter+1
-                    worksheet2.write('J'+str(i+2),str(df.iloc[j][28]),border_format)
-                    worksheet2.write('K'+str(i+2),str(df.iloc[j][20]).replace(".",","),border_format)
+                    worksheet2.write('J'+str(i+2),str(df.iloc[j][28]))
+                    worksheet2.write('K'+str(i+2),str(df.iloc[j][20]).replace(".",","))
             
 
 
