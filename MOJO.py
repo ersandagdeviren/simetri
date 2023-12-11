@@ -191,7 +191,10 @@ for i in range(len(df2)):
                 if str(df2.iloc[i][12])=="nan" and str(df2.iloc[i][14])!="nan":
                     worksheet.write('A'+str(counter),str(df.iloc[j][15]))
                     worksheet.write('C'+str(counter),str(df.iloc[j][16]))
-                    worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
+                    if str(df.iloc[j][16])== "KG":
+                        worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])/1000).replace(".",","))
+                    else:
+                        worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
                     counter=counter+1
                     worksheet2.write('H'+str(i+2),str(df.iloc[j][27]))
                     worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
@@ -202,7 +205,10 @@ for i in range(len(df2)):
                     index=df[df['Powder_short'] == str(df2.iloc[i][12]).upper()].index[0]
                     worksheet.write('A'+str(counter),str(df.iloc[index][15]))
                     worksheet.write('C'+str(counter),str(df.iloc[index][16]))
-                    worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
+                    if str(df.iloc[j][16])== "KG":
+                        worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])/1000).replace(".",","))
+                    else:
+                        worksheet.write('D'+str(counter),str(int(df2.iloc[i][1])*float(df2.iloc[i][14])).replace(".",","))
                     counter=counter+1
                     worksheet2.write('H'+str(i+2),str(df.iloc[index][27]))
                     worksheet2.write('I'+str(i+2),str(float(df2.iloc[i][14])).replace(".",","))
@@ -216,11 +222,6 @@ for i in range(len(df2)):
                     counter=counter+1
                     worksheet2.write('H'+str(i+2),str(df.iloc[j][27]))
                     worksheet2.write('I'+str(i+2),str(float(df.iloc[j][17])).replace(".",","))
-
-                    
-                    
-                    
-                    
             if str(df.iloc[j][18]) != "nan":
                 
                 if str(df2.iloc[i][16]).upper()=="Y":#developer
