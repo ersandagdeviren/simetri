@@ -292,7 +292,7 @@ workbook.close()
 workbook2.close()
 df_final = pd.read_excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Excel\excel.xlsx')
 
-df_stok=pd.read.excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\depostok.xlsx')
+df_stok=pd.read_excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\depostok.xlsx')
 workbook3 = xlsxwriter.Workbook(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Excel\Stok.xlsx')
 worksheet3 = workbook3.add_worksheet()
 worksheet3.write('A1',"KOD" )
