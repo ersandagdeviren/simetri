@@ -19,6 +19,7 @@ worksheet.write('A2',"DAT")
 worksheet.write('B2',"STOK ADI")
 worksheet.write('C2',"BİRİM")
 worksheet.write('D2',"MİKTAR")
+worksheet.write('E2',"UYUM STOK")
 
 workbook2=xlsxwriter.Workbook(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Formlar\Uretim_Formu_{}.xlsx'.format(formatted_date))
 
@@ -290,6 +291,20 @@ for i in range(len(df2)):
 workbook.close()
 workbook2.close()
 df_final = pd.read_excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Excel\excel.xlsx')
+
+df_stok=pd.read.excel(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\depostok.xlsx')
+workbook3 = xlsxwriter.Workbook(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Excel\Stok.xlsx')
+worksheet3 = workbook3.add_worksheet()
+worksheet3.write('A1',"KOD" )
+worksheet3.write('B1',"STOK" )
+counter=2
+for i in range(len(df_final)):
+    for j in range(len(df_stok)):
+        if str(df_final.iloc[i][0])== str(df.df_stok[j][1]):
+            worksheet3.write('A'+str(counter),str(df_final.iloc[i][0]))
+            worksheet3.write('B'+str(counter),str(df_stok.iloc[j][1]))
+            counter=counter+1
+
 
 # Save the DataFrame as a CSV file.
 df_final.to_csv(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Stok-hareket.csv', index=False,sep =';')
