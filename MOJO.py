@@ -304,7 +304,8 @@ for i in range(len(df_final)):
             worksheet3.write('A'+str(counter),str(df_final.iloc[i][0]))
             worksheet3.write('B'+str(counter),str(df_stok.iloc[j][1]))
             counter=counter+1
-
+            
+workbook3.close()
 
 # Save the DataFrame as a CSV file.
 df_final.to_csv(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\Uretim\Stok-hareket.csv', index=False,sep =';')
