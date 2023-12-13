@@ -61,7 +61,7 @@ worksheet2.set_default_row(20)
 counter=4
 for i in range(len(df2)):
     for j in range(len(df)):
-        if str(df2.iloc[i][0]).upper()== str(df.iloc[j][0]):
+        if str(df2.iloc[i][0]).upper()== str(df.iloc[j][0]).upper():
             worksheet2.write('A'+str(i+2),str(df2.iloc[i][0]).upper())
             worksheet2.write('B'+str(i+2),str(df2.iloc[i][1]))
             if str(df.iloc[j][5]) != "nan":
