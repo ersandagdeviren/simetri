@@ -300,9 +300,9 @@ worksheet3.write('B1',"STOK" )
 counter=2
 for i in range(len(df_final)):
     for j in range(len(df_stok)):
-        if str(df_final.iloc[i][0])== str(df_stok[j][1]):
+        if str(df_final.iloc[i][0])== str(df_stok.iloc[j][1]):
             worksheet3.write('A'+str(counter),str(df_final.iloc[i][0]))
-            worksheet3.write('B'+str(counter),str(df_stok.iloc[j][1]))
+            worksheet3.write('B'+str(counter),str(df_stok.iloc[j][3]))
             counter=counter+1
             
 workbook3.close()
