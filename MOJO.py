@@ -297,6 +297,10 @@ workbook3 = xlsxwriter.Workbook(r'\\WIN-VCGK7KC2PST\Users\Administrator\Desktop\
 worksheet3 = workbook3.add_worksheet()
 worksheet3.write('A1',"KOD" )
 worksheet3.write('B1',"STOK" )
+
+
+worksheet3.set_column('A:A', 50)
+worksheet3.set_column('B:B', 20)
 counter=2
 for i in range(len(df_final)):
     for j in range(len(df_stok)):
@@ -304,7 +308,7 @@ for i in range(len(df_final)):
             worksheet3.write('A'+str(counter),str(df_final.iloc[i][0]))
             worksheet3.write('B'+str(counter),str(df_stok.iloc[j][3]))
             counter=counter+1
-            
+
 workbook3.close()
 
 # Save the DataFrame as a CSV file.
